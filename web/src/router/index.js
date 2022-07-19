@@ -1,22 +1,63 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import TarefasView from '../views/TarefasView.vue'
+import TarefasTableView from '../views/TarefasTableView.vue'
+import TarefasFormView from '../views/TarefasFormView.vue'
+import UsuariosView from '../views/UsuariosView.vue'
+import UsuariosTableView from '../views/UsuariosTableView.vue'
+import UsuariosFormView from '../views/UsuariosFormView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'tarefas',
-      component: TarefasView
+      name: 'home',
+      redirect: '/tarefas',
     },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-    //   component: () => import('../views/AboutView.vue')
-    // }
+    {
+      path: '/tarefas',
+      name: 'tarefas',
+      component: TarefasView,
+      children: [
+        {
+          path: '',
+          name: 'tarefas-table',
+          component: TarefasTableView
+        },
+        {
+          path: 'novo',
+          name: 'tarefas-novo',
+          component: TarefasFormView
+        },
+        {
+          path: ':id/editar',
+          name: 'tarefas-editar',
+          component: TarefasFormView
+        }
+      ]
+    },
+    {
+      path: '/usuarios',
+      name: 'usuarios',
+      component: UsuariosView,
+      children: [
+        {
+          path: '',
+          name: 'usuarios-table',
+          component: UsuariosTableView
+        },
+        {
+          path: 'novo',
+          name: 'usuarios-novo',
+          component: UsuariosFormView
+        },
+        {
+          path: ':id/editar',
+          name: 'usuarios-editar',
+          component: UsuariosFormView
+        }
+      ]
+    },
   ]
 })
 
