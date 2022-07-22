@@ -6,7 +6,7 @@ import NavSide from './components/NavSide.vue'
 <template>
   <div class="mx-auto h-screen">
     <div class="flex h-full">
-      <div class="flex-initial xl:w-1/6 lg:w-3/12 bg-slate-800 text-white">
+      <div class="flex-initial xl:w-1/6 lg:w-3/12 bg-slate-800 text-white" v-if="$route.name !== 'login'">
         <div class="p-6 bg-slate-900">
           <h1 class="text-xl font-medium text-center">Avaliação Creative</h1>
         </div>
@@ -19,6 +19,6 @@ import NavSide from './components/NavSide.vue'
   </div>
 </template>
 
-<style scoped>
+<style lang="scss">
 
 </style>

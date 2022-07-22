@@ -113,22 +113,5 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-label {
-  @apply text-sm;
-  @apply ml-2;
-}
 
-input, select {
-  @apply bg-slate-200;
-  @apply rounded-lg;
-  @apply px-4;
-  @apply py-2;
-  @apply w-full;
-  @apply transition;
-  @apply ease-in-out;
-  &:focus {
-    @apply bg-slate-300;
-    outline: none;
-  }
-}
 </style>
